@@ -1,0 +1,95 @@
+Script started on 2025-03-16 20:25:09+01:00 [TERM="xterm-256color" TTY="/dev/pts/6" COLUMNS="149" LINES="20"]
+[?2004h]0;kemayou@DESKTOP-V6NCFBT: /mnt/c/Users/User/Desktop/devops_keyce/Tp1/jenkins/pipeline.yml[01;32mkemayou@DESKTOP-V6NCFBT[00m:[01;34m/mnt/c/Users/User/Desktop/devops_keyce/Tp1/jenkins/pipeline.yml[00m$ pipeline {
+    agent any
+
+    environment {
+        DOCKER_IMAGE = "kemayou2004/webapp"
+        DOCKER_CREDENTIALS = "dockerhub-credentials"
+    }
+
+    stages {
+        stage('Clonage') {
+            steps {
+                git branch: 'main', url: 'https://github.com/KRaymonne/ton-repo.git'
+            }
+        }
+
+[7m        stage('Image') {[27m
+[7m            steps {[27m
+[7m                script {[27m
+[7m                    sh 'docker build -t $DOCKER_IMAGE .'[27m
+[7m                }[27m
+[7m            }[27m[7m        }[27m[7m        stage('Publication') {[27m[7m            steps {[27m[7m                script {[27m[7m                    withDockerRegistry([credentialsId: "$DOCKER_CREDENTIALS", url: ""]) {[27m[7m                        sh 'docker push $DOCKER_IMAGE'[27m[7m                    }[27m[7m                }[27m[7m            }[27m[7m        }[27m[7m    }[27m[7m}[27m[A[A[A[A[A        stage('Image') {
+            steps {
+                script {
+                    sh 'docker build -t $DOCKER_IMAGE .'
+                }
+            }        }        stage('Publication') {            steps {                script {                    withDockerRegistry([credentialsId: "$DOCKER_CREDENTIALS", url: ""]) {                        sh 'docker push $DOCKER_IMAGE'                    }                }            }        }    }}
+[?2004lpipeline: command not found
+agent: command not found
+environment: command not found
+DOCKER_IMAGE: command not found
+DOCKER_CREDENTIALS: command not found
+bash: syntax error near unexpected token `}'
+Command 'stages' not found, did you mean:
+  command 'states' from deb enscript (1.6.5.90-3)
+Try: sudo apt install <deb name>
+bash: syntax error near unexpected token `'Clonage''
+Command 'steps' not found, did you mean:
+  command 'step' from snap step (23.08.4)
+  command 'step' from deb step (4:21.12.3-0ubuntu1)
+  command 'stops' from deb vasttrafik-cli (1.5-1)
+See 'snap info <snapname>' for additional versions.
+git: 'branch:' is not a git command. See 'git --help'.
+
+The most similar command is
+	branch
+bash: syntax error near unexpected token `}'
+bash: syntax error near unexpected token `}'
+bash: syntax error near unexpected token `'Image''
+Command 'steps' not found, did you mean:
+  command 'step' from snap step (23.08.4)
+  command 'step' from deb step (4:21.12.3-0ubuntu1)
+  command 'stops' from deb vasttrafik-cli (1.5-1)
+See 'snap info <snapname>' for additional versions.
+Script started, output log file is '{'.
+[?2004h]0;kemayou@DESKTOP-V6NCFBT: /mnt/c/Users/User/Desktop/devops_keyce/Tp1/jenkins/pipeline.yml[01;32mkemayou@DESKTOP-V6NCFBT[00m:[01;34m/mnt/c/Users/User/Desktop/devops_keyce/Tp1/jenkins/pipeline.yml[00m$ docker compose up[K[K[K[K[K[K[K[Kcd ../jenkins-installdocker run -d --name B3_soir_v2 -v mon_volume_temporaire:/tmp ubuntu[A]0;kemayou@DESKTOP-V6NCFBT: /mnt/c/Users/User/Desktop/devops_keyce/Tp1/jenkins/pipeline.yml[01;32mkemayou@DESKTOP-V6NCFBT[00m:[01;34m/mnt/c/Users/User/Desktop/devops_keyce/Tp1/jenkins/pipeline.yml[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cjou
+[C[C[C[C[C[C[C[C[A]0;kemayou@DESKTOP-V6NCFBT: /mnt/c/Users/User/Desktop/devops_keyce/Tp1/jenkins/pipeline.yml[01;32mkemayou@DESKTOP-V6NCFBT[00m:[01;34m/mnt/c/Users/User/Desktop/devops_keyce/Tp1/jenkins/pipeline.yml[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Csoir -v mon_volume_temporaire:/tmp ub[3Puntu[A]0;kemayou@DESKTOP-V6NCFBT: /mnt/c/Users/User/Desktop/devops_keyce/Tp1/jenkins/pipeline.yml[01;32mkemayou@D   }[27m[7m        }[27m[7m    }[27m[7m}[27m[A[A[A[A[A        stage('Image') {
+            steps {
+                script {
+                    sh 'docker build -t $DOCKER_IMAGE .'
+                }
+            }        }        stage('Publication') {            steps {                script {                    withDockerRegistry([credentialsId: "$DOCKER_CREDENTIALS", url: ""]) {                        sh 'docker push $DOCKER_IMAGE'                    }                }            }        }    }}
+[?2004lpipeline: command not found
+agent: command not found
+environment: command not found
+DOCKER_IMAGE: command not found
+DOCKER_CREDENTIALS: command not found
+bash: syntax error near unexpected token `}'
+Command 'stages' not found, did you mean:
+  command 'states' from deb enscript (1.6.5.90-3)
+Try: sudo apt install <deb name>
+bash: syntax error near unexpected token `'Clonage''
+Command 'steps' not found, did you mean:
+  command 'step' from snap step (23.08.4)
+  command 'step' from deb step (4:21.12.3-0ubuntu1)
+  command 'stops' from deb vasttrafik-cli (1.5-1)
+See 'snap info <snapname>' for additional versions.
+git: 'branch:' is not a git command. See 'git --help'.
+
+The most similar command is
+	branch
+bash: syntax error near unexpected token `}'
+bash: syntax error near unexpected token `}'
+bash: syntax error near unexpected token `'Image''
+Command 'steps' not found, did you mean:
+  command 'step' from snap step (23.08.4)
+  command 'step' from deb step (4:21.12.3-0ubuntu1)
+  command 'stops' from deb vasttrafik-cli (1.5-1)
+See 'snap info <snapname>' for additional versions.
+Script started, output log file is '{'.
+[?2004h]0;kemayou@DESKTOP-V6NCFBT: /mnt/c/Users/User/Desktop/devops_keyce/Tp1/jenkins/pipeline.yml[01;32mkemayou@DESKTOP-V6NCFBT[00m:[01;34m/mnt/c/Users/User/Desktop/devops_keyce/Tp1/jenkins/pipeline.yml[00m$ docker compose up[K[K[K[K[K[K[K[Kcd ../jenkins-installdocker run -d --name B3_soir_v2 -v mon_volume_temporaire:/tmp ubuntu[A]0;kemayou@DESKTOP-V6NCFBT: /mnt/c/Users/User/Desktop/devops_keyce/Tp1/jenkins/pipeline.yml[01;32mkemayou@DESKTOP-V6NCFBT[00m:[01;34m/mnt/c/Users/User/Desktop/devops_keyce/Tp1/jenkins/pipeline.yml[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cjou
+[C[C[C[C[C[C[C[C[A]0;kemayou@DESKTOP-V6NCFBT: /mnt/c/Users/User/Desktop/devops_keyce/Tp1/jenkins/pipeline.yml[01;32mkemayou@DESKTOP-V6NCFBT[00m:[01;34m/mnt/c/Users/User/Desktop/devops_keyce/Tp1/jenkins/pipeline.yml[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Csoir -v mon_volume_temporaire:/tmp ub[3Puntu[A]0;kemayou@DESKTOP-V6NCFBT: /mnt/c/Users/User/Desktop/devops_keyce/Tp1/jenkins/pipeline.yml[01;32mkemayou@DESKTOP-V6NCFBT[00m:[01;34m/mnt/c/Users/User/Desktop/devops_keyce/Tp1/jenkins/pipeline.yml[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cjou
+[C[C[C[C[C[A]0;kemayou@DESKTOP-V6NCFBT: /mnt/c/Users/User/Desktop/devops_keyce/Tp1/jenkins/pipeline.yml[01;32mkemayou@DESKTOP-V6NCFBT[00m:[01;34m/mnt/c/Users/User/Desktop/devops_keyce/Tp1/jenkins/pipeline.yml[00m$ [C[C[C[C[C[C[Cstop B3_soir[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cps[Krun -d --name B3_jour -v mon_volume_temporaire:/tmp ubuntu[A]0;kemayou@DESKTOP-V6NCFBT: /mnt/c/Users/User/Desktop/devops_keyce/Tp1/jenkins/pipeline.yml[01;32mkemayou@DESKTOP-V6NCFBT[00m:[01;34m/mnt/c/Users/User/Desktop/devops_keyce/Tp1/jenkins/pipeline.yml[00m$ [C[C[C[C[C[C[C[18Pvolume create mon_volume_temporaire
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[
