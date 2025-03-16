@@ -2,9 +2,9 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_HUB_CREDENTIALS = 'dockerhub-credentials'  // Remplace par l'ID de tes credentials DockerHub dans Jenkins
+        DOCKER_HUB_CREDENTIALS = 'dockerhub-credentials'  
         DOCKER_IMAGE = 'kemayou2004/docker-flask-app:latest'
-        GIT_REPO = 'https://github.com/KRaymonne/Tp1' // Remplace par ton vrai dépôt GitHub
+        GIT_REPO = 'https://github.com/KRaymonne/Tp1' 
     }
 
     stages {
