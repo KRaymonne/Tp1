@@ -2,15 +2,15 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_HUB_CREDENTIALS = 'dockerhub-credentials'  // ID des credentials DockerHub dans Jenkins
+        DOCKER_HUB_CREDENTIALS = 'dockerhub-credentials'  // Remplace par l'ID de tes credentials DockerHub dans Jenkins
         DOCKER_IMAGE = 'kemayou2004/docker-flask-app:latest'
-        GIT_REPO = 'https://github.com/KRaymonne/Tp1'
+        GIT_REPO = 'https://github.com/KRaymonne/Tp1' // Remplace par ton vrai dépôt GitHub
     }
 
     stages {
         stage('Clonage') {
             steps {
-                git branch: 'main', url: GIT_REPO
+                git branch: 'main', url: "${GIT_REPO}"
             }
         }
 
@@ -25,7 +25,7 @@ pipeline {
         stage('Authentification DockerHub') {
             steps {
                 script {
-                    withCredentials([usernamePassword(credentialsId: DOCKER_HUB_CREDENTIALS, usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+                    withCredentials([usernamePassword(credentialsId: "${DOCKER_HUB_CREDENTIALS}", usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
                         sh 'echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin'
                     }
                 }
@@ -35,10 +35,10 @@ pipeline {
         stage('Tag et Push de l’image') {
             steps {
                 script {
-                    sh 'docker tag kemayou-flask-app $DOCKER_IMAGE'
-                    sh 'docker push $DOCKER_IMAGE'
+                    sh 'docker tag kemayou-flask-app ${DOCKER_IMAGE}'
+                    sh 'docker push ${DOCKER_IMAGE}'
                 }
             }
-        }
-    }
+        }
+    }
 }
